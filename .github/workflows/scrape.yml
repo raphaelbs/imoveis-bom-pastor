@@ -1,4 +1,4 @@
-name: Scrape Imóveis
+name: Scrape Imoveis
 
 on:
   schedule:
