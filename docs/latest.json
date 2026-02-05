@@ -1,6 +1,6 @@
 {
   "date": "2026-02-05",
-  "generated_at": "2026-02-05T15:54:18.342174",
+  "generated_at": "2026-02-05T19:03:14.543567",
   "imoveis": [
     {
       "area": 200.0,
@@ -627,12 +627,12 @@
       "endereco": ""
     },
     {
-      "area": 141.0,
+      "area": 190.0,
       "quartos": 3,
       "banheiros": 2,
       "vagas": 4,
       "preco": 390000.0,
-      "preco_m2": 2765.96,
+      "preco_m2": 2052.63,
       "tipo": "venda",
       "fonte": "MGF Imóveis",
       "bairro": "Bom Pastor",
@@ -1055,10 +1055,10 @@
     "total_venda": 45,
     "total_aluguel": 8,
     "fontes": [
-      "Achei Imobiliária",
-      "Francisco Imóveis",
       "MGF Imóveis",
-      "Ala Imóveis"
+      "Achei Imobiliária",
+      "Ala Imóveis",
+      "Francisco Imóveis"
     ]
   }
 }
