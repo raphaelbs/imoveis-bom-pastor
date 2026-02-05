@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+*.csv
+relatorio.json
+.DS_Store

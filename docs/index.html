@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imoveis Bom Pastor - Divinopolis/MG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    .fade-in { animation: fadeIn 0.3s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+
+<div x-data="app()" x-init="init()" class="max-w-6xl mx-auto px-4 py-8">
+
+  <!-- Header -->
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Imoveis Bom Pastor</h1>
+    <p class="text-gray-500 mt-1">Divinopolis/MG &mdash; Aluguel vs Compra</p>
+    <div class="flex items-center gap-4 mt-3 flex-wrap">
+      <template x-if="data">
+        <span class="text-sm bg-brand-100 text-brand-800 px-3 py-1 rounded-full" x-text="'Dados de ' + data.date"></span>
+      </template>
+      <template x-if="history.length > 1">
+        <select x-model="selectedDate" @change="loadDate(selectedDate)" class="text-sm border rounded px-2 py-1">
+          <template x-for="h in history" :key="h.date">
+            <option :value="h.date" x-text="h.date"></option>
+          </template>
+        </select>
+      </template>
+    </div>
+  </header>
+
+  <!-- Loading -->
+  <template x-if="loading">
+    <div class="text-center py-20 text-gray-400">
+      <svg class="animate-spin h-8 w-8 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <p>Carregando dados...</p>
+    </div>
+  </template>
+
+  <!-- Error -->
+  <template x-if="error">
+    <div class="bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 my-8">
+      <p class="font-medium">Erro ao carregar dados</p>
+      <p class="text-sm mt-1" x-text="error"></p>
+      <p class="text-sm mt-2">Certifique-se de que <code>latest.json</code> existe na pasta <code>docs/</code>.</p>
+    </div>
+  </template>
+
+  <!-- Content -->
+  <template x-if="data && !loading">
+    <div class="fade-in space-y-8">
+
+      <!-- Summary cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl shadow-sm border p-4">
+          <p class="text-xs text-gray-400 uppercase tracking-wide">Total Imoveis</p>
+          <p class="text-2xl font-bold mt-1" x-text="data.resumo.total_imoveis"></p>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border p-4">
+          <p class="text-xs text-gray-400 uppercase tracking-wide">Venda</p>
+          <p class="text-2xl font-bold mt-1 text-blue-600" x-text="data.resumo.total_venda"></p>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border p-4">
+          <p class="text-xs text-gray-400 uppercase tracking-wide">Aluguel</p>
+          <p class="text-2xl font-bold mt-1 text-green-600" x-text="data.resumo.total_aluguel"></p>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border p-4">
+          <p class="text-xs text-gray-400 uppercase tracking-wide">Fontes</p>
+          <p class="text-2xl font-bold mt-1" x-text="data.resumo.fontes.length"></p>
+        </div>
+      </div>
+
+      <!-- Ranking -->
+      <div class="bg-white rounded-xl shadow-sm border p-6">
+        <h2 class="text-lg font-semibold mb-4">Ranking Patrimonial (30 anos)</h2>
+        <div class="space-y-3">
+          <template x-for="(item, idx) in data.simulacao.ranking" :key="idx">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl font-bold w-8" :class="idx === 0 ? 'text-yellow-500' : 'text-gray-400'" x-text="(idx+1) + 'o'"></span>
+              <div class="flex-1">
+                <div class="flex justify-between items-baseline">
+                  <span class="font-medium" x-text="item.cenario"></span>
+                  <span class="font-bold text-lg" x-text="formatBRL(item.patrimonio)"></span>
+                </div>
+                <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div class="h-full rounded-full" :class="idx === 0 ? 'bg-brand-500' : idx === 1 ? 'bg-blue-400' : 'bg-gray-300'"
+                       :style="'width:' + (item.patrimonio / data.simulacao.ranking[0].patrimonio * 100) + '%'"></div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- Simulation params -->
+      <div class="bg-white rounded-xl shadow-sm border p-6">
+        <h2 class="text-lg font-semibold mb-4">Parametros da Simulacao</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+          <div><span class="text-gray-400">Preco imovel:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.parametros.preco_imovel)"></span></div>
+          <div><span class="text-gray-400">Entrada:</span> <span class="font-medium" x-text="(data.simulacao.parametros.entrada_pct * 100) + '% = ' + formatBRL(data.simulacao.parametros.entrada_valor)"></span></div>
+          <div><span class="text-gray-400">Financiado:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.parametros.financiado)"></span></div>
+          <div><span class="text-gray-400">Taxa financ.:</span> <span class="font-medium" x-text="(data.simulacao.parametros.taxa_financ * 100) + '% a.a.'"></span></div>
+          <div><span class="text-gray-400">Parcela:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.parametros.parcela) + '/mes'"></span></div>
+          <div><span class="text-gray-400">Aluguel inicial:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.parametros.aluguel_inicial) + '/mes'"></span></div>
+          <div><span class="text-gray-400">Amort. extra:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.parametros.amort_extra_valor) + '/mes'"></span></div>
+          <div><span class="text-gray-400">Orcamento mensal:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.parametros.orcamento_mensal) + '/mes'"></span></div>
+        </div>
+      </div>
+
+      <!-- Key Results -->
+      <div class="bg-white rounded-xl shadow-sm border p-6">
+        <h2 class="text-lg font-semibold mb-4">Resultados-Chave</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+          <div><span class="text-gray-400">Financ. quitado em:</span> <span class="font-medium" x-text="data.simulacao.resultado.anos_quitou + ' anos'"></span></div>
+          <div><span class="text-gray-400">Economia juros (amort.):</span> <span class="font-medium text-green-600" x-text="formatBRL(data.simulacao.resultado.economia_juros)"></span></div>
+          <div><span class="text-gray-400">Aluguel > parcela no:</span> <span class="font-medium" x-text="'Ano ' + data.simulacao.resultado.crossover_ano"></span></div>
+          <div><span class="text-gray-400">Aluguel final:</span> <span class="font-medium text-red-600" x-text="formatBRL(data.simulacao.resultado.aluguel_final) + '/mes'"></span></div>
+          <div><span class="text-gray-400">Imovel valorizado:</span> <span class="font-medium" x-text="formatBRL(data.simulacao.resultado.imovel_valorizado)"></span></div>
+          <div><span class="text-gray-400">Selic media:</span> <span class="font-medium" x-text="data.simulacao.medias.selic_media + '%'"></span></div>
+        </div>
+      </div>
+
+      <!-- Tabs: Venda / Aluguel -->
+      <div class="bg-white rounded-xl shadow-sm border p-6">
+        <div class="flex gap-2 mb-4">
+          <button @click="tab = 'venda'" :class="tab === 'venda' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'" class="px-4 py-2 rounded-lg text-sm font-medium transition">
+            Venda (<span x-text="vendaItems.length"></span>)
+          </button>
+          <button @click="tab = 'aluguel'" :class="tab === 'aluguel' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600'" class="px-4 py-2 rounded-lg text-sm font-medium transition">
+            Aluguel (<span x-text="aluguelItems.length"></span>)
+          </button>
+        </div>
+
+        <!-- Sort & filter -->
+        <div class="flex gap-2 mb-4 flex-wrap items-center">
+          <select x-model="sortField" class="text-sm border rounded px-2 py-1">
+            <option value="preco">Preco</option>
+            <option value="area">Area</option>
+            <option value="quartos">Quartos</option>
+            <option value="preco_m2">R$/m2</option>
+          </select>
+          <button @click="sortAsc = !sortAsc" class="text-sm border rounded px-2 py-1" x-text="sortAsc ? 'Crescente' : 'Decrescente'"></button>
+          <input type="text" x-model="filterFonte" placeholder="Filtrar fonte..." class="text-sm border rounded px-2 py-1">
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b text-left text-gray-400">
+                <th class="pb-2 pr-4">Area</th>
+                <th class="pb-2 pr-4">Q</th>
+                <th class="pb-2 pr-4">B</th>
+                <th class="pb-2 pr-4">V</th>
+                <th class="pb-2 pr-4">Preco</th>
+                <th class="pb-2 pr-4" x-show="tab === 'venda'">R$/m2</th>
+                <th class="pb-2">Fonte</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="item in sortedItems" :key="item._idx">
+                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                  <td class="py-2 pr-4" x-text="item.area + 'm2'"></td>
+                  <td class="py-2 pr-4" x-text="item.quartos"></td>
+                  <td class="py-2 pr-4" x-text="item.banheiros"></td>
+                  <td class="py-2 pr-4" x-text="item.vagas"></td>
+                  <td class="py-2 pr-4 font-medium" x-text="formatBRL(item.preco)"></td>
+                  <td class="py-2 pr-4" x-show="tab === 'venda'" x-text="formatBRL(item.preco_m2)"></td>
+                  <td class="py-2 text-gray-500" x-text="item.fonte"></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+          <p x-show="sortedItems.length === 0" class="py-8 text-center text-gray-400">Nenhum imovel encontrado.</p>
+        </div>
+      </div>
+
+      <!-- Year-by-year table -->
+      <div class="bg-white rounded-xl shadow-sm border p-6">
+        <h2 class="text-lg font-semibold mb-4">Evolucao Anual</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b text-left text-gray-400">
+                <th class="pb-2 pr-4">Ano</th>
+                <th class="pb-2 pr-4">IPCA</th>
+                <th class="pb-2 pr-4">Selic</th>
+                <th class="pb-2 pr-4">Aluguel</th>
+                <th class="pb-2 pr-4">Saldo Financ.</th>
+                <th class="pb-2 pr-4">Patrim. Comprador</th>
+                <th class="pb-2">Patrim. Inquilino</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="h in data.simulacao.historico_anual" :key="h.ano">
+                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                  <td class="py-2 pr-4 font-medium" x-text="h.ano"></td>
+                  <td class="py-2 pr-4" x-text="h.ipca + '%'"></td>
+                  <td class="py-2 pr-4" x-text="h.selic + '%'"></td>
+                  <td class="py-2 pr-4" x-text="formatBRL(h.aluguel)"></td>
+                  <td class="py-2 pr-4" x-text="h.saldo_com > 0 ? formatBRL(h.saldo_com) : 'QUITADO'" :class="h.saldo_com <= 0 ? 'text-green-600 font-medium' : ''"></td>
+                  <td class="py-2 pr-4" x-text="formatBRL(h.patrim_comprador)"></td>
+                  <td class="py-2" x-text="formatBRL(h.patrim_inquilino)"></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- History -->
+      <template x-if="history.length > 1">
+        <div class="bg-white rounded-xl shadow-sm border p-6">
+          <h2 class="text-lg font-semibold mb-4">Historico de Coletas</h2>
+          <div class="space-y-2">
+            <template x-for="h in history" :key="h.date">
+              <button @click="loadDate(h.date)" class="block w-full text-left px-3 py-2 rounded-lg text-sm hover:bg-gray-50 transition"
+                      :class="selectedDate === h.date ? 'bg-brand-50 text-brand-700 font-medium' : 'text-gray-600'">
+                <span x-text="h.date"></span>
+                <span class="text-gray-400 text-xs ml-2" x-text="h.file"></span>
+              </button>
+            </template>
+          </div>
+        </div>
+      </template>
+
+    </div>
+  </template>
+</div>
+
+<script>
+function app() {
+  return {
+    data: null,
+    history: [],
+    selectedDate: '',
+    loading: true,
+    error: null,
+    tab: 'venda',
+    sortField: 'preco',
+    sortAsc: true,
+    filterFonte: '',
+
+    async init() {
+      // Detect base path: works both locally (file://) and via raw.githubusercontent
+      const base = this.getBasePath();
+      try {
+        // Load history
+        try {
+          const hRes = await fetch(base + 'history.json');
+          if (hRes.ok) this.history = await hRes.json();
+        } catch (e) { /* no history yet */ }
+
+        // Load latest data
+        const res = await fetch(base + 'latest.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        this.data = await res.json();
+        if (this.data.date) this.selectedDate = this.data.date;
+      } catch (e) {
+        this.error = e.message;
+      }
+      this.loading = false;
+    },
+
+    getBasePath() {
+      const loc = window.location;
+      // If opened as file:// or served, resolve relative to index.html
+      const path = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+      return loc.protocol + '//' + loc.host + path;
+    },
+
+    async loadDate(date) {
+      this.selectedDate = date;
+      const entry = this.history.find(h => h.date === date);
+      if (!entry) return;
+      this.loading = true;
+      this.error = null;
+      try {
+        const base = this.getBasePath();
+        const res = await fetch(base + entry.file);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        this.data = await res.json();
+      } catch (e) {
+        this.error = e.message;
+      }
+      this.loading = false;
+    },
+
+    get vendaItems() {
+      if (!this.data) return [];
+      return this.data.imoveis.filter(i => i.tipo === 'venda').map((i, idx) => ({...i, _idx: 'v' + idx}));
+    },
+
+    get aluguelItems() {
+      if (!this.data) return [];
+      return this.data.imoveis.filter(i => i.tipo === 'aluguel').map((i, idx) => ({...i, _idx: 'a' + idx}));
+    },
+
+    get sortedItems() {
+      const items = this.tab === 'venda' ? this.vendaItems : this.aluguelItems;
+      let filtered = items;
+      if (this.filterFonte) {
+        const f = this.filterFonte.toLowerCase();
+        filtered = items.filter(i => i.fonte.toLowerCase().includes(f));
+      }
+      const field = this.sortField;
+      const dir = this.sortAsc ? 1 : -1;
+      return [...filtered].sort((a, b) => ((a[field] || 0) - (b[field] || 0)) * dir);
+    },
+
+    formatBRL(val) {
+      if (val == null) return '-';
+      return 'R$ ' + Number(val).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+  }
+}
+</script>
+
+</body>
+</html>
