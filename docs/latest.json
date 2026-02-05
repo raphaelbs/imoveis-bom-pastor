@@ -1,6 +1,6 @@
 {
   "date": "2026-02-05",
-  "generated_at": "2026-02-05T19:03:14.543567",
+  "generated_at": "2026-02-05T16:11:49.512534",
   "imoveis": [
     {
       "area": 200.0,
@@ -1055,10 +1055,10 @@
     "total_venda": 45,
     "total_aluguel": 8,
     "fontes": [
-      "MGF Imóveis",
-      "Achei Imobiliária",
+      "Francisco Imóveis",
       "Ala Imóveis",
-      "Francisco Imóveis"
+      "Achei Imobiliária",
+      "MGF Imóveis"
     ]
   }
 }

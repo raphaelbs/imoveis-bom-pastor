@@ -585,12 +585,127 @@ def gerar_csv(imoveis: list[Imovel], sim: dict) -> str:
     return "\n".join(lines)
 
 
+def gerar_readme(imoveis: list[Imovel], sim: dict, date: str) -> str:
+    """Gera README.md com dados do mercado e simulação."""
+    def brl(v):
+        return f"R$ {v:,.0f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+    lines = []
+    w = lines.append
+
+    w("# Imoveis Bom Pastor - Divinopolis/MG")
+    w("")
+    w("Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.")
+    w("")
+    w(f"> Ultima atualizacao: **{date}**")
+    w("")
+
+    # ── Resumo ──
+    venda = sorted([i for i in imoveis if i.tipo == "venda"], key=lambda x: x.preco)
+    aluguel = sorted([i for i in imoveis if i.tipo == "aluguel"], key=lambda x: x.preco)
+
+    w(f"## Resumo")
+    w("")
+    w(f"| | Total |")
+    w(f"|---|---|")
+    w(f"| Imoveis coletados | **{len(imoveis)}** |")
+    w(f"| Venda | {len(venda)} |")
+    w(f"| Aluguel | {len(aluguel)} |")
+    w(f"| Fontes | {', '.join(sorted(set(i.fonte for i in imoveis)))} |")
+    w("")
+
+    # ── Ranking ──
+    ranking = sim["ranking"]
+    w("## Ranking Patrimonial (30 anos)")
+    w("")
+    for idx, item in enumerate(ranking):
+        medal = ["1.", "2.", "3."][idx]
+        w(f"{medal} **{item['cenario']}** — {brl(item['patrimonio'])}")
+    w("")
+
+    vencedor = ranking[0]
+    segundo = ranking[1]
+    ratio = vencedor["patrimonio"] / segundo["patrimonio"] if segundo["patrimonio"] else 0
+    w(f"> **{vencedor['cenario']}** vence por **{ratio:.1f}x**")
+    w("")
+
+    # ── Parametros ──
+    p = sim["parametros"]
+    r = sim["resultado"]
+    m = sim["medias"]
+
+    w("## Parametros da Simulacao")
+    w("")
+    w(f"| Parametro | Valor |")
+    w(f"|---|---|")
+    w(f"| Preco do imovel | {brl(p['preco_imovel'])} |")
+    w(f"| Entrada | {p['entrada_pct']*100:.0f}% ({brl(p['entrada_valor'])}) |")
+    w(f"| Financiado | {brl(p['financiado'])} |")
+    w(f"| Taxa financ. | {p['taxa_financ']*100:.0f}% a.a. |")
+    w(f"| Parcela | {brl(p['parcela'])}/mes |")
+    w(f"| Amort. extra | {brl(p['amort_extra_valor'])}/mes |")
+    w(f"| Orcamento mensal | {brl(p['orcamento_mensal'])}/mes |")
+    w(f"| Aluguel inicial | {brl(p['aluguel_inicial'])}/mes |")
+    w(f"| Selic media proj. | {m['selic_media']}% |")
+    w(f"| IPCA medio proj. | {m['ipca_medio']}% |")
+    w("")
+
+    # ── Resultados-chave ──
+    w("## Resultados-Chave")
+    w("")
+    w(f"| Metrica | Valor |")
+    w(f"|---|---|")
+    w(f"| Financ. quitado em | **{r['anos_quitou']} anos** ({r['meses_quitou']} meses) |")
+    w(f"| Economia de juros (amort.) | {brl(r['economia_juros'])} |")
+    w(f"| Aluguel ultrapassa parcela | Ano {r['crossover_ano']} |")
+    w(f"| Aluguel final (ano 30) | {brl(r['aluguel_final'])}/mes |")
+    w(f"| Imovel valorizado | {brl(r['imovel_valorizado'])} |")
+    w("")
+
+    # ── Tabelas de imoveis ──
+    if venda:
+        w(f"## Imoveis a Venda ({len(venda)})")
+        w("")
+        w("| Area | Q | B | V | Preco | R$/m2 | Fonte |")
+        w("|---|---|---|---|---|---|---|")
+        for i in venda:
+            w(f"| {i.area:.0f}m2 | {i.quartos} | {i.banheiros} | {i.vagas} | {brl(i.preco)} | {brl(i.preco_m2)} | {i.fonte} |")
+        w("")
+
+    if aluguel:
+        w(f"## Imoveis para Aluguel ({len(aluguel)})")
+        w("")
+        w("| Area | Q | B | V | Aluguel/mes | Fonte |")
+        w("|---|---|---|---|---|---|")
+        for i in aluguel:
+            w(f"| {i.area:.0f}m2 | {i.quartos} | {i.banheiros} | {i.vagas} | {brl(i.preco)} | {i.fonte} |")
+        w("")
+
+    # ── Evolucao anual ──
+    w("## Evolucao Anual")
+    w("")
+    w("| Ano | IPCA | Selic | Aluguel | Saldo Financ. | Patrim. Comprador | Patrim. Inquilino |")
+    w("|---|---|---|---|---|---|---|")
+    for h in sim["historico_anual"]:
+        saldo = brl(h["saldo_com"]) if h["saldo_com"] > 0 else "QUITADO"
+        w(f"| {h['ano']} | {h['ipca']}% | {h['selic']}% | {brl(h['aluguel'])} | {saldo} | {brl(h['patrim_comprador'])} | {brl(h['patrim_inquilino'])} |")
+    w("")
+
+    # ── Footer ──
+    w("---")
+    w("")
+    w("*Gerado automaticamente por [relatorio_imoveis.py](scraper/relatorio_imoveis.py)*")
+    w("")
+
+    return "\n".join(lines)
+
+
 # ─────────────────────────────────────────────────────────────
 # Main
 # ─────────────────────────────────────────────────────────────
 
-def publish_to_docs(data: dict, docs_dir: str) -> str:
-    """Save JSON to docs/data/YYYY-MM-DD.json, copy to latest.json, update history.json."""
+def publish_to_docs(data: dict, imoveis: list[Imovel], sim: dict, docs_dir: str) -> str:
+    """Save JSON to docs/data/YYYY-MM-DD.json, copy to latest.json, update history.json, generate README.md."""
     docs = Path(docs_dir)
     data_dir = docs / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
@@ -622,6 +737,12 @@ def publish_to_docs(data: dict, docs_dir: str) -> str:
     history.insert(0, {"date": today, "file": f"data/{today}.json"})
     history_file.write_text(json.dumps(history, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"  Atualizado: {history_file}")
+
+    # Generate README.md at repo root (one level above docs/)
+    readme_path = docs.parent / "README.md"
+    readme_content = gerar_readme(imoveis, sim, today)
+    readme_path.write_text(readme_content, encoding="utf-8")
+    print(f"  Atualizado: {readme_path}")
 
     return str(data_file)
 
@@ -674,7 +795,7 @@ def main():
     # Publish to docs/ if requested
     if args.docs_dir:
         print("\nPublicando em docs/...")
-        publish_to_docs(full_data, args.docs_dir)
+        publish_to_docs(full_data, imoveis, sim, args.docs_dir)
 
     # Output
     if args.export == "json":
