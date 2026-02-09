@@ -2,7 +2,7 @@
 
 Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 
-> Ultima atualizacao: **2026-02-05**
+> Ultima atualizacao: **2026-02-09**
 
 ## Resumo
 
@@ -51,7 +51,7 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 | Area | Q | B | V | Preco | R$/m2 | Fonte |
 |---|---|---|---|---|---|---|
 | 70m2 | 2 | 1 | 4 | R$ 260.000 | R$ 3.714 | Achei Imobiliária |
-| 190m2 | 3 | 2 | 4 | R$ 390.000 | R$ 2.053 | MGF Imóveis |
+| 132m2 | 3 | 1 | 2 | R$ 380.000 | R$ 2.889 | Achei Imobiliária |
 | 310m2 | 6 | 0 | 0 | R$ 450.000 | R$ 1.452 | Francisco Imóveis |
 | 300m2 | 5 | 4 | 4 | R$ 500.000 | R$ 1.667 | MGF Imóveis |
 | 300m2 | 3 | 3 | 2 | R$ 530.000 | R$ 1.767 | MGF Imóveis |
@@ -62,7 +62,7 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 | 180m2 | 0 | 0 | 0 | R$ 680.000 | R$ 3.778 | Ala Imóveis |
 | 186m2 | 3 | 0 | 4 | R$ 680.000 | R$ 3.656 | Francisco Imóveis |
 | 135m2 | 3 | 2 | 2 | R$ 690.000 | R$ 5.111 | Achei Imobiliária |
-| 226m2 | 4 | 2 | 3 | R$ 750.000 | R$ 3.326 | Achei Imobiliária |
+| 180m2 | 3 | 2 | 2 | R$ 750.000 | R$ 4.167 | Achei Imobiliária |
 | 236m2 | 4 | 0 | 2 | R$ 790.000 | R$ 3.349 | Francisco Imóveis |
 | 200m2 | 5 | 1 | 4 | R$ 820.000 | R$ 4.100 | Ala Imóveis |
 | 205m2 | 3 | 2 | 2 | R$ 850.000 | R$ 4.146 | MGF Imóveis |
@@ -100,11 +100,11 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 
 | Area | Q | B | V | Aluguel/mes | Fonte |
 |---|---|---|---|---|---|
-| 267m2 | 3 | 0 | 2 | R$ 800 | Francisco Imóveis |
-| 0m2 | 3 | 1 | 1 | R$ 950 | MGF Imóveis |
+| 150m2 | 3 | 1 | 1 | R$ 950 | MGF Imóveis |
+| 120m2 | 3 | 1 | 1 | R$ 1.200 | MGF Imóveis |
 | 90m2 | 3 | 2 | 0 | R$ 4.500 | Achei Imobiliária |
-| 347m2 | 4 | 0 | 0 | R$ 4.500 | Francisco Imóveis |
-| 60m2 | 2 | 0 | 1 | R$ 5.500 | Francisco Imóveis |
+| 347m2 | 3 | 0 | 2 | R$ 4.500 | Francisco Imóveis |
+| 267m2 | 2 | 0 | 1 | R$ 5.500 | Francisco Imóveis |
 | 305m2 | 4 | 3 | 0 | R$ 12.000 | Ala Imóveis |
 | 200m2 | 4 | 3 | 8 | R$ 15.000 | Ala Imóveis |
 | 250m2 | 1 | 0 | 2 | R$ 5.000.000 | Francisco Imóveis |
