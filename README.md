@@ -2,14 +2,14 @@
 
 Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 
-> Ultima atualizacao: **2026-08-24**
+> Ultima atualizacao: **2026-08-31**
 
 ## Resumo
 
 | | Total |
 |---|---|
-| Imoveis coletados | **78** |
-| Venda | 47 |
+| Imoveis coletados | **80** |
+| Venda | 49 |
 | Aluguel | 31 |
 | Fontes | Achei Imobiliária, Ala Imóveis, Francisco Imóveis, MGF Imóveis |
 
@@ -46,39 +46,41 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 | Aluguel final (ano 30) | R$ 10.424/mes |
 | Imovel valorizado | R$ 2.605.961 |
 
-## Imoveis a Venda (47)
+## Imoveis a Venda (49)
 
 | Area | Q | B | V | Preco | R$/m2 | Fonte |
 |---|---|---|---|---|---|---|
 | 660m2 | 3 | 2 | 2 | R$ 92.000 | R$ 139 | MGF Imóveis |
 | 360m2 | 3 | 1 | 0 | R$ 185.000 | R$ 514 | MGF Imóveis |
 | 720m2 | 0 | 5 | 0 | R$ 280.000 | R$ 389 | MGF Imóveis |
-| 56m2 | 2 | 1 | 2 | R$ 289.000 | R$ 5.175 | Achei Imobiliária |
 | 318m2 | 3 | 1 | 0 | R$ 390.000 | R$ 1.226 | MGF Imóveis |
-| 149m2 | 4 | 1 | 2 | R$ 420.000 | R$ 2.819 | Achei Imobiliária |
-| 105m2 | 3 | 1 | 2 | R$ 450.000 | R$ 4.286 | Achei Imobiliária |
-| 150m2 | 3 | 1 | 2 | R$ 480.000 | R$ 3.200 | Achei Imobiliária |
+| 330m2 | 5 | 0 | 5 | R$ 410.000 | R$ 1.242 | Francisco Imóveis |
+| 78m2 | 3 | 1 | 2 | R$ 420.000 | R$ 5.385 | Achei Imobiliária |
 | 380m2 | 4 | 0 | 3 | R$ 500.000 | R$ 1.316 | Francisco Imóveis |
 | 300m2 | 3 | 1 | 0 | R$ 530.000 | R$ 1.767 | MGF Imóveis |
-| 120m2 | 8 | 0 | 0 | R$ 590.000 | R$ 4.917 | Francisco Imóveis |
+| 150m2 | 3 | 1 | 4 | R$ 590.000 | R$ 3.933 | Achei Imobiliária |
 | 370m2 | 3 | 0 | 4 | R$ 615.000 | R$ 1.662 | Francisco Imóveis |
 | 200m2 | 3 | 2 | 2 | R$ 650.000 | R$ 3.250 | Ala Imóveis |
-| 250m2 | 5 | 0 | 2 | R$ 660.000 | R$ 2.640 | Francisco Imóveis |
+| 250m2 | 3 | 0 | 2 | R$ 660.000 | R$ 2.640 | Francisco Imóveis |
 | 180m2 | 0 | 0 | 0 | R$ 680.000 | R$ 3.778 | Ala Imóveis |
+| 133m2 | 3 | 1 | 2 | R$ 690.000 | R$ 5.188 | Achei Imobiliária |
+| 159m2 | 3 | 1 | 3 | R$ 695.000 | R$ 4.379 | Achei Imobiliária |
 | 360m2 | 5 | 2 | 4 | R$ 789.000 | R$ 2.192 | MGF Imóveis |
-| 200m2 | 4 | 0 | 2 | R$ 790.000 | R$ 3.950 | Francisco Imóveis |
+| 200m2 | 4 | 0 | 1 | R$ 790.000 | R$ 3.950 | Francisco Imóveis |
 | 360m2 | 5 | 2 | 4 | R$ 790.000 | R$ 2.194 | MGF Imóveis |
 | 200m2 | 5 | 1 | 4 | R$ 820.000 | R$ 4.100 | Ala Imóveis |
 | 300m2 | 3 | 1 | 0 | R$ 850.000 | R$ 2.833 | MGF Imóveis |
+| 170m2 | 3 | 2 | 2 | R$ 879.000 | R$ 5.171 | Achei Imobiliária |
+| 172m2 | 3 | 2 | 2 | R$ 899.000 | R$ 5.227 | Achei Imobiliária |
 | 205m2 | 3 | 2 | 2 | R$ 950.000 | R$ 4.634 | MGF Imóveis |
 | 120m2 | 4 | 0 | 4 | R$ 980.000 | R$ 8.167 | Francisco Imóveis |
 | 300m2 | 3 | 1 | 0 | R$ 980.000 | R$ 3.267 | MGF Imóveis |
-| 190m2 | 2 | 2 | 4 | R$ 990.000 | R$ 5.211 | Achei Imobiliária |
+| 157m2 | 3 | 2 | 2 | R$ 990.000 | R$ 6.306 | Achei Imobiliária |
 | 200m2 | 3 | 2 | 2 | R$ 1.000.000 | R$ 5.000 | Ala Imóveis |
 | 200m2 | 2 | 0 | 2 | R$ 1.190.000 | R$ 5.950 | Francisco Imóveis |
-| 146m2 | 3 | 0 | 1 | R$ 1.200.000 | R$ 8.244 | Francisco Imóveis |
+| 146m2 | 3 | 0 | 0 | R$ 1.200.000 | R$ 8.244 | Francisco Imóveis |
 | 360m2 | 5 | 1 | 4 | R$ 1.290.000 | R$ 3.583 | MGF Imóveis |
-| 330m2 | 3 | 0 | 5 | R$ 1.300.000 | R$ 3.939 | Francisco Imóveis |
+| 98m2 | 3 | 0 | 2 | R$ 1.300.000 | R$ 13.219 | Francisco Imóveis |
 | 205m2 | 3 | 5 | 0 | R$ 1.390.000 | R$ 6.780 | MGF Imóveis |
 | 200m2 | 3 | 0 | 5 | R$ 1.400.000 | R$ 7.000 | Francisco Imóveis |
 | 250m2 | 4 | 1 | 2 | R$ 1.450.000 | R$ 5.800 | Ala Imóveis |
@@ -92,7 +94,7 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 | 200m2 | 3 | 1 | 3 | R$ 1.800.000 | R$ 9.000 | Ala Imóveis |
 | 186m2 | 3 | 0 | 2 | R$ 1.990.000 | R$ 10.699 | Francisco Imóveis |
 | 300m2 | 3 | 1 | 0 | R$ 2.000.000 | R$ 6.667 | MGF Imóveis |
-| 150m2 | 0 | 3 | 0 | R$ 2.200.000 | R$ 14.667 | MGF Imóveis |
+| 150m2 | 0 | 3 | 0 | R$ 2.100.000 | R$ 14.000 | MGF Imóveis |
 | 205m2 | 4 | 0 | 4 | R$ 2.400.000 | R$ 11.707 | Francisco Imóveis |
 | 630m2 | 3 | 0 | 6 | R$ 2.590.000 | R$ 4.111 | Francisco Imóveis |
 | 280m2 | 4 | 0 | 4 | R$ 3.500.000 | R$ 12.500 | Francisco Imóveis |
@@ -116,7 +118,6 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 | 200m2 | 2 | 0 | 2 | R$ 1.850 | Francisco Imóveis |
 | 101m2 | 3 | 1 | 2 | R$ 2.000 | MGF Imóveis |
 | 200m2 | 4 | 2 | 1 | R$ 2.000 | MGF Imóveis |
-| 61m2 | 3 | 2 | 2 | R$ 2.200 | MGF Imóveis |
 | 208m2 | 3 | 2 | 2 | R$ 2.400 | MGF Imóveis |
 | 190m2 | 3 | 1 | 1 | R$ 2.500 | MGF Imóveis |
 | 142m2 | 4 | 2 | 1 | R$ 2.500 | MGF Imóveis |
@@ -127,8 +128,9 @@ Comparativo automatizado: **Aluguel vs Compra** de casas no Bom Pastor.
 | 231m2 | 3 | 2 | 2 | R$ 3.500 | MGF Imóveis |
 | 267m2 | 3 | 2 | 2 | R$ 4.500 | MGF Imóveis |
 | 343m2 | 3 | 2 | 1 | R$ 5.000 | MGF Imóveis |
-| 290m2 | 7 | 3 | 0 | R$ 9.900 | Achei Imobiliária |
+| 137m2 | 3 | 2 | 2 | R$ 7.500 | MGF Imóveis |
 | 300m2 | 3 | 1 | 1 | R$ 10.000 | MGF Imóveis |
+| 350m2 | 4 | 4 | 3 | R$ 11.700 | Achei Imobiliária |
 | 280m2 | 3 | 3 | 1 | R$ 12.000 | MGF Imóveis |
 | 220m2 | 8 | 5 | 2 | R$ 15.000 | Ala Imóveis |
 | 200m2 | 4 | 3 | 8 | R$ 15.000 | Ala Imóveis |
