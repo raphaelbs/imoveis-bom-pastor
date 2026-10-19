@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-12",
-  "generated_at": "2026-10-12T17:11:41.238642",
+  "date": "2026-10-19",
+  "generated_at": "2026-10-19T15:10:41.040167",
   "imoveis": [
     {
       "area": 220.0,
@@ -27,6 +27,18 @@
       "endereco": "Avenida Getúlio Vargas"
     },
     {
+      "area": 160.0,
+      "quartos": 3,
+      "banheiros": 1,
+      "vagas": 3,
+      "preco": 2250.0,
+      "preco_m2": 14.06,
+      "tipo": "aluguel",
+      "fonte": "Achei Imobiliária",
+      "bairro": "Bom Pastor",
+      "endereco": "Rua Caratinga"
+    },
+    {
       "area": 400.0,
       "quartos": 3,
       "banheiros": 2,
@@ -51,24 +63,12 @@
       "endereco": ""
     },
     {
-      "area": 306.74,
+      "area": 330.0,
       "quartos": 2,
       "banheiros": 0,
       "vagas": 2,
       "preco": 6000.0,
-      "preco_m2": 19.56,
-      "tipo": "aluguel",
-      "fonte": "Francisco Imóveis",
-      "bairro": "Bom Pastor",
-      "endereco": ""
-    },
-    {
-      "area": 330.0,
-      "quartos": 3,
-      "banheiros": 0,
-      "vagas": 2,
-      "preco": 4000.0,
-      "preco_m2": 12.12,
+      "preco_m2": 18.18,
       "tipo": "aluguel",
       "fonte": "Francisco Imóveis",
       "bairro": "Bom Pastor",
@@ -355,8 +355,8 @@
       "quartos": 3,
       "banheiros": 1,
       "vagas": 1,
-      "preco": 3600.0,
-      "preco_m2": 24.0,
+      "preco": 1200.0,
+      "preco_m2": 8.0,
       "tipo": "aluguel",
       "fonte": "MGF Imóveis",
       "bairro": "Bom Pastor",
@@ -435,28 +435,16 @@
       "endereco": "Rua Muriaé"
     },
     {
-      "area": 83.0,
+      "area": 78.0,
       "quartos": 3,
       "banheiros": 1,
       "vagas": 2,
-      "preco": 450000.0,
-      "preco_m2": 5421.69,
+      "preco": 420000.0,
+      "preco_m2": 5384.62,
       "tipo": "venda",
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
-      "endereco": "Rua Francisco Cândido de Jesus"
-    },
-    {
-      "area": 83.0,
-      "quartos": 3,
-      "banheiros": 1,
-      "vagas": 2,
-      "preco": 430000.0,
-      "preco_m2": 5180.72,
-      "tipo": "venda",
-      "fonte": "Achei Imobiliária",
-      "bairro": "Bom Pastor",
-      "endereco": "Rua Francisco Cândido de Jesus"
+      "endereco": "Rua Agostinho Assunção"
     },
     {
       "area": 186.81,
@@ -471,28 +459,52 @@
       "endereco": "Rua Paraguai"
     },
     {
-      "area": 49.68,
+      "area": 58.0,
       "quartos": 2,
       "banheiros": 1,
-      "vagas": 3,
-      "preco": 280000.0,
-      "preco_m2": 5636.07,
+      "vagas": 2,
+      "preco": 250000.0,
+      "preco_m2": 4310.34,
       "tipo": "venda",
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
-      "endereco": "Rua Assunção"
+      "endereco": "Rua Antonio Vieira Santos"
     },
     {
-      "area": 78.0,
+      "area": 58.0,
+      "quartos": 2,
+      "banheiros": 1,
+      "vagas": 2,
+      "preco": 250000.0,
+      "preco_m2": 4310.34,
+      "tipo": "venda",
+      "fonte": "Achei Imobiliária",
+      "bairro": "Bom Pastor",
+      "endereco": "Rua Antonio Vieira Santos"
+    },
+    {
+      "area": 102.68,
+      "quartos": 2,
+      "banheiros": 1,
+      "vagas": 2,
+      "preco": 370000.0,
+      "preco_m2": 3603.43,
+      "tipo": "venda",
+      "fonte": "Achei Imobiliária",
+      "bairro": "Bom Pastor",
+      "endereco": "Rua Santa Catarina"
+    },
+    {
+      "area": 120.0,
       "quartos": 3,
       "banheiros": 1,
       "vagas": 2,
-      "preco": 420000.0,
-      "preco_m2": 5384.62,
+      "preco": 500000.0,
+      "preco_m2": 4166.67,
       "tipo": "venda",
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
-      "endereco": "Rua Agostinho Assunção"
+      "endereco": "RUA CAMPO BELO"
     },
     {
       "area": 380.0,
@@ -868,7 +880,7 @@
     },
     {
       "area": 360.0,
-      "quartos": 0,
+      "quartos": 1,
       "banheiros": 2,
       "vagas": 2,
       "preco": 1400000.0,
@@ -880,7 +892,7 @@
     },
     {
       "area": 300.0,
-      "quartos": 0,
+      "quartos": 1,
       "banheiros": 5,
       "vagas": 2,
       "preco": 280000.0,
@@ -907,8 +919,8 @@
       "quartos": 0,
       "banheiros": 1,
       "vagas": 2,
-      "preco": 700000.0,
-      "preco_m2": 972.22,
+      "preco": 885000.0,
+      "preco_m2": 1229.17,
       "tipo": "venda",
       "fonte": "MGF Imóveis",
       "bairro": "Bom Pastor",
@@ -1327,14 +1339,14 @@
     ]
   },
   "resumo": {
-    "total_imoveis": 76,
-    "total_venda": 46,
+    "total_imoveis": 77,
+    "total_venda": 47,
     "total_aluguel": 30,
     "fontes": [
       "Francisco Imóveis",
+      "Ala Imóveis",
       "Achei Imobiliária",
-      "MGF Imóveis",
-      "Ala Imóveis"
+      "MGF Imóveis"
     ]
   }
 }
