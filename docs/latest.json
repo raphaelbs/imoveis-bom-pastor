@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-26",
-  "generated_at": "2026-10-26T14:42:46.417495",
+  "date": "2026-11-02",
+  "generated_at": "2026-11-02T17:37:37.764273",
   "imoveis": [
     {
       "area": 220.0,
@@ -27,52 +27,16 @@
       "endereco": "Avenida Getúlio Vargas"
     },
     {
-      "area": 200.0,
-      "quartos": 4,
-      "banheiros": 2,
-      "vagas": 4,
-      "preco": 6500.0,
-      "preco_m2": 32.5,
-      "tipo": "aluguel",
-      "fonte": "Achei Imobiliária",
-      "bairro": "Bom Pastor",
-      "endereco": "Rua Itapecerica"
-    },
-    {
-      "area": 120.0,
-      "quartos": 3,
-      "banheiros": 3,
-      "vagas": 2,
-      "preco": 3200.0,
-      "preco_m2": 26.67,
-      "tipo": "aluguel",
-      "fonte": "Achei Imobiliária",
-      "bairro": "Bom Pastor",
-      "endereco": "Rua Minas Gerais"
-    },
-    {
-      "area": 100.0,
+      "area": 160.0,
       "quartos": 3,
       "banheiros": 1,
-      "vagas": 5,
-      "preco": 2700.0,
-      "preco_m2": 27.0,
+      "vagas": 3,
+      "preco": 1980.0,
+      "preco_m2": 12.38,
       "tipo": "aluguel",
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
-      "endereco": "Rua Bom Pastor"
-    },
-    {
-      "area": 750.0,
-      "quartos": 3,
-      "banheiros": 1,
-      "vagas": 2,
-      "preco": 2600.0,
-      "preco_m2": 3.47,
-      "tipo": "aluguel",
-      "fonte": "Achei Imobiliária",
-      "bairro": "Bom Pastor",
-      "endereco": "Rua Sergipe"
+      "endereco": "Rua Caratinga"
     },
     {
       "area": 140.0,
@@ -87,16 +51,16 @@
       "endereco": "Rua Fortaleza"
     },
     {
-      "area": 160.0,
+      "area": 120.0,
       "quartos": 3,
       "banheiros": 1,
-      "vagas": 3,
-      "preco": 1980.0,
-      "preco_m2": 12.38,
+      "vagas": 6,
+      "preco": 2400.0,
+      "preco_m2": 20.0,
       "tipo": "aluguel",
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
-      "endereco": "Rua Caratinga"
+      "endereco": "Rua Fortaleza"
     },
     {
       "area": 250.0,
@@ -111,12 +75,24 @@
       "endereco": ""
     },
     {
-      "area": 330.0,
+      "area": 68.0,
       "quartos": 2,
       "banheiros": 0,
       "vagas": 2,
       "preco": 6000.0,
-      "preco_m2": 18.18,
+      "preco_m2": 88.24,
+      "tipo": "aluguel",
+      "fonte": "Francisco Imóveis",
+      "bairro": "Bom Pastor",
+      "endereco": ""
+    },
+    {
+      "area": 330.0,
+      "quartos": 3,
+      "banheiros": 0,
+      "vagas": 2,
+      "preco": 1400.0,
+      "preco_m2": 4.24,
       "tipo": "aluguel",
       "fonte": "Francisco Imóveis",
       "bairro": "Bom Pastor",
@@ -403,8 +379,8 @@
       "quartos": 3,
       "banheiros": 1,
       "vagas": 1,
-      "preco": 1000.0,
-      "preco_m2": 6.67,
+      "preco": 1400.0,
+      "preco_m2": 9.33,
       "tipo": "aluguel",
       "fonte": "MGF Imóveis",
       "bairro": "Bom Pastor",
@@ -483,16 +459,40 @@
       "endereco": "Rua Muriaé"
     },
     {
-      "area": 288.0,
+      "area": 83.0,
       "quartos": 3,
-      "banheiros": 3,
-      "vagas": 3,
-      "preco": 550000.0,
-      "preco_m2": 1909.72,
+      "banheiros": 1,
+      "vagas": 2,
+      "preco": 480000.0,
+      "preco_m2": 5783.13,
       "tipo": "venda",
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
-      "endereco": "Alameda Rio Caiapó"
+      "endereco": "Rua Maria do Rosário Gomes"
+    },
+    {
+      "area": 185.0,
+      "quartos": 3,
+      "banheiros": 1,
+      "vagas": 2,
+      "preco": 450000.0,
+      "preco_m2": 2432.43,
+      "tipo": "venda",
+      "fonte": "Achei Imobiliária",
+      "bairro": "Bom Pastor",
+      "endereco": "Rua Guilherme Francisco Claudino"
+    },
+    {
+      "area": 99.0,
+      "quartos": 5,
+      "banheiros": 1,
+      "vagas": 2,
+      "preco": 650000.0,
+      "preco_m2": 6565.66,
+      "tipo": "venda",
+      "fonte": "Achei Imobiliária",
+      "bairro": "Bom Pastor",
+      "endereco": "Rua Serra do Cristal"
     },
     {
       "area": 150.0,
@@ -505,30 +505,6 @@
       "fonte": "Achei Imobiliária",
       "bairro": "Bom Pastor",
       "endereco": "Rua Recife"
-    },
-    {
-      "area": 78.0,
-      "quartos": 3,
-      "banheiros": 1,
-      "vagas": 2,
-      "preco": 420000.0,
-      "preco_m2": 5384.62,
-      "tipo": "venda",
-      "fonte": "Achei Imobiliária",
-      "bairro": "Bom Pastor",
-      "endereco": "Rua Agostinho Assunção"
-    },
-    {
-      "area": 70.48,
-      "quartos": 3,
-      "banheiros": 1,
-      "vagas": 2,
-      "preco": 330000.0,
-      "preco_m2": 4682.18,
-      "tipo": "venda",
-      "fonte": "Achei Imobiliária",
-      "bairro": "Bom Pastor",
-      "endereco": "Rua Lima"
     },
     {
       "area": 380.0,
@@ -931,8 +907,8 @@
       "quartos": 3,
       "banheiros": 1,
       "vagas": 2,
-      "preco": 450000.0,
-      "preco_m2": 1500.0,
+      "preco": 415000.0,
+      "preco_m2": 1383.33,
       "tipo": "venda",
       "fonte": "MGF Imóveis",
       "bairro": "Bom Pastor",
@@ -1351,14 +1327,14 @@
     ]
   },
   "resumo": {
-    "total_imoveis": 78,
+    "total_imoveis": 76,
     "total_venda": 44,
-    "total_aluguel": 34,
+    "total_aluguel": 32,
     "fontes": [
-      "Ala Imóveis",
       "MGF Imóveis",
-      "Francisco Imóveis",
-      "Achei Imobiliária"
+      "Achei Imobiliária",
+      "Ala Imóveis",
+      "Francisco Imóveis"
     ]
   }
 }
